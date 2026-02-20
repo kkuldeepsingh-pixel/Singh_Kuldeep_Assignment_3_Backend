@@ -50,5 +50,3 @@ export const createEventSchema = Joi.object({
         }),
 });
 
-// Placeholder for Event validation schema
-export {};
