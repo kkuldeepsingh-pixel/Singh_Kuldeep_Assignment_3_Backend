@@ -1,15 +1,11 @@
 import express from 'express';
 import { createEventSchema } from '../validation/eventValidation';
 import { validateRequest } from '../middleware/validationMiddleware';
+import { createEventController } from '../controllers/eventController';
 
 const router = express.Router();
 
-// Placeholder controller for now
-const createEventController = (req: express.Request, res: express.Response) => {
-    res.status(200).json({ message: 'Controller not implemented yet' });
-};
-
-// Use validation middleware before the placeholder controller
+// POST /api/v1/events
 router.post('/events', validateRequest(createEventSchema), createEventController);
 
 export default router;
