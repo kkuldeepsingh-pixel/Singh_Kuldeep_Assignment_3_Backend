@@ -50,3 +50,15 @@ export const createEventSchema = Joi.object({
         }),
 });
 
+export const eventIdParamSchema = Joi.object({
+  id: Joi.string().trim().min(5).required()
+});
+
+export const updateEventSchema = Joi.object({
+  name: Joi.string().min(3).optional(),
+  date: Joi.string().isoDate().optional(),
+  capacity: Joi.number().integer().min(1).optional(),
+  registrationCount: Joi.number().integer().min(0).optional(),
+  status: Joi.string().valid('upcoming', 'ongoing', 'completed').optional(),
+  category: Joi.string().min(3).optional()
+}).min(1);

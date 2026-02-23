@@ -1,5 +1,9 @@
 import express from 'express';
-import { createEventSchema } from '../validation/eventValidation';
+import {
+  createEventSchema,
+  eventIdParamSchema,
+  updateEventSchema
+} from '../validation/eventValidation';
 import { validateRequest } from '../middleware/validationMiddleware';
 
 import {
@@ -12,19 +16,39 @@ import {
 
 const router = express.Router();
 
-// CREATE (must match video validation)
-router.post('/events', validateRequest(createEventSchema), createEventController);
+// CREATE 
+router.post(
+  '/events',
+  validateRequest(createEventSchema),
+  createEventController
+);
 
 // READ ALL
-router.get('/events', getAllEventsController);
+router.get(
+  '/events',
+  getAllEventsController
+);
 
 // READ ONE
-router.get('/events/:id', getEventByIdController);
+router.get(
+  '/events/:id',
+  validateRequest(eventIdParamSchema, 'params'),
+  getEventByIdController
+);
 
 // UPDATE
-router.put('/events/:id', updateEventController);
+router.put(
+  '/events/:id',
+  validateRequest(eventIdParamSchema, 'params'),
+  validateRequest(updateEventSchema),
+  updateEventController
+);
 
 // DELETE
-router.delete('/events/:id', deleteEventController);
+router.delete(
+  '/events/:id',
+  validateRequest(eventIdParamSchema, 'params'),
+  deleteEventController
+);
 
 export default router;
