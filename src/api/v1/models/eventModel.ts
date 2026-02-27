@@ -9,3 +9,8 @@ export interface Event {
     createdAt: string;
     updatedAt: string;
 }
+
+export type CreateEvent = Omit<
+  Event,
+  'id' | 'registrationCount' | 'createdAt' | 'updatedAt'
+>;
