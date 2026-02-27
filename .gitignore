@@ -3,3 +3,4 @@ dist/
 
 # Ignore Firebase service account
 /config/serviceAccountKey.json
+
