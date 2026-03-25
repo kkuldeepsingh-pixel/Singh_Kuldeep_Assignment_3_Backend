@@ -4,7 +4,7 @@ import helmet from "helmet";
 dotenv.config();
 
 const PORT = process.env.PORT || 3000;
-
+app.use(helmet());
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
