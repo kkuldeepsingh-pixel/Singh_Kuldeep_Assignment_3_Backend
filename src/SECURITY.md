@@ -37,3 +37,7 @@ app.use(
     noSniff: true,
   })
 );
+
+## API Documentation
+
+Access the live API documentation here: [Swagger Docs](https://kkuldeepsingh-pixel.github.io/Singh_Kuldeep_Assignment_3_Backend/)
