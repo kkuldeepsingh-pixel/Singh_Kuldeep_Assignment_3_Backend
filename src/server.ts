@@ -1,6 +1,7 @@
 import app from './app';
 import dotenv from 'dotenv';
 import helmet from "helmet";
+import cors from "cors";
 dotenv.config();
 
 const PORT = process.env.PORT || 3000;
